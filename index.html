@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css font/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=Roboto+Slab&family=Stick+No+Bills:wght@300&display=swap" rel="stylesheet">
+    <title>FOOOOOD</title>
+</head>
+
+<style>
+    :root{
+        --green: green;
+        --black: #130f40;
+        --light: #666;
+        --box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+        --border: 2rem solid rgba(0,0,0.1);
+        --outline: .1rem solid rgba(0,0,0.1);
+    }
+    *{
+        font-family: 'Poppins', sans-serif;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        outline: none;
+        text-decoration: none;
+        transition: all 0.2s linear; 
+
+    }
+    html{
+        font-size: 62.5%;
+        overflow-x: hidden;
+        scroll-padding-top: 7rem;
+        scroll-behavior: smooth;
+    }
+    body{
+        background: #eee;
+    }
+    .hello{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2rem 9%;
+        background: #fff;
+        box-shadow: var(--box-shadow);
+        z-index: 1000;
+    }
+    .hello .logo{
+        font-size: 2.5rem;
+        font-weight: 500;
+        
+    }
+    .hello .logo i{
+        color: var(--green);
+         
+    }
+    .hello .list a{
+        font-size: 1.7rem;
+        margin: 0 1rem;
+        color: var(--black);
+    }
+    .hello .list a:hover{
+        background: var(--green);
+        color: #fff;
+        border-radius: 10px;
+        transform: scale(2.2);
+    }
+    .hello .icon div{
+        height: 4.5rem;
+        width: 4.5rem;
+        
+        line-height: 4.5rem;
+        border-radius: .5rem;
+        background: #eee;
+        color: var(--black);
+        font-size: 2rem;
+        margin-right:0.3rem;
+        text-align: center;
+    }
+    .hello .icon div:hover{
+        background: var(--green);
+        color: white;
+        cursor: pointer;
+    }
+    #bar-style{
+        display: none;
+    }
+    .hello .search_bar{
+        position: absolute;
+        top: 110%;
+        right: -110%;
+        width: 50rem;
+        height: 4.5rem;
+        background: #FFF;
+        border-radius: 1rem;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        
+
+    }
+
+    .hello .search_bar.active{
+        right: 2rem;
+        transition: 0.4s linear;
+    }
+    .hello .search_bar input{
+        height:100%;
+        width: 100%;
+        background: none;
+        text-transform: none;
+        font-size: 1.6rem;
+        color:var(--green);
+        padding: 0 1.5rem;
+        border: none;
+    }
+    .hello .search_bar label{
+        font-size: 2.2rem;
+        padding-right: 1.5rem;
+        color: var(--green);
+        cursor: pointer;
+    }
+    .hello .check_out{
+        
+        position: absolute;
+        top: 110%;
+        right: -110%;
+        padding: 1rem;
+        border-radius: .5rem;
+        background: #fff;
+        width: 35rem;
+    }
+    .hello .check_out .box{
+        
+        display: flex;
+        align-items: center;
+        position: relative;
+        margin: 1rem 0;
+        gap:1rem;        
+    }
+    .hello .check_out .box img{
+        height: 10rem;
+
+    }
+    .hello .check_out .box .fa-trash{
+        font-size: 2rem;
+        position: absolute;
+        top: 50%;
+        right: 2rem;
+        cursor: pointer;
+        color: green;
+        transform: translateY(-50);
+    }
+    .hello .check_out .box .fa-trash:hover{
+        color: black;
+    }
+    .hello .check_out .box .counter h3{
+        color: black;
+        font-size: 1.7rem;
+        padding-bottom:1rem;
+    }
+    .hello .check_out .box .counter span{
+        color: var(--light);
+        font-size: 1.7rem;
+        padding-bottom:1rem;
+    }
+    .hello .check_out .box .counter .qnt{
+        padding-left: 1rem;
+    }
+    .hello .check_out .total{
+        font-size: 2.5rem;
+        padding: 1rem 0;
+        text-align: center;
+        color: var(--black);
+    }
+    .btn{
+        border: 0.2rem solid black;
+        margin: 1rem;
+        display: inline-block;
+        padding: .8rem 3rem;
+        font-size: 1.7rem;
+        border-radius: .5rem;
+        color: var(--black);
+        cursor: pointer;
+        background: none;
+
+    }
+    .btn:hover{
+        background: var(--green);
+        color: white;
+    }
+    .head_1{
+        text-align: center;
+        padding: 2rem 0;
+        font-size: 3.5rem;
+        padding-bottom: 3rem;
+        color: rgba(0, 0, 0, 0.826);
+        
+    }
+    .head_1 span{
+        background: green;
+        color: white;
+        display: inline-block;
+        padding: 0.5rem 3rem;
+        clip-path: polygon(100% 0,93% 50%,100% 99%,0% 100%,7% 50%,0% 0%);
+    }
+
+
+    .hello .check_out .btn{
+        display: block;
+        text-align: center;
+        margin: 1rem 0;
+        
+    }
+    .hello .check_out.active{
+        right: 2rem;
+        transition: 0.4s linear;
+    }
+    .hello .login{
+        
+        position: absolute;
+        top: 110%;
+        right: -110%;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        background: #fff;
+        text-align: center;
+        width: 30rem;
+    }
+    .hello .login h3{
+        text-transform: uppercase;
+        font-size: 2.5rem;
+        color: green;
+
+    }
+    .hello .login .boxi{
+        
+        margin: 0.7rem 0;
+        background: #eee;
+        padding: 1rem; 
+        border-radius: 0.5rem;
+        font-size: 1.6rem;
+        width: 100%;
+        text-transform: none;
+        color: green;
+        border: none;
+
+    }
+    .hello .login p{
+        font-size: 1.4rem;
+        padding: 0.5rem 0;
+        color: var(--light);
+    }
+    .hello .login p a{
+        font-size: 1.4rem ;
+        color: var(--green);
+        padding: 0.5rem 0;
+        text-decoration: underline;
+    }
+    .hello .login.active{
+        right: 2rem;
+        transition: 0.4s linear;
+    }
+
+
+    section {
+        padding: 2rem 9%;
+    }
+    .home_class{
+        border: 0px solid;
+        display: flex;
+        justify-content: center;
+        background: url(image/images/banner-img.jpg) no-repeat;
+        background-position: center;
+        background-size: cover;
+        padding-top: 17rem;
+        padding-bottom: 10rem;
+    }
+    .home_class .home_content{
+        border: 0px solid;
+        text-align: center;
+        width: 60rem;
+    }
+    .home_class .home_content h3{
+        color: black;
+        font-size: 3rem;
+    }
+    .home_class .home_content h3 span{
+        color: green;
+        text-decoration: underline;
+    }
+    .home_class .home_content p{
+        padding: 2rem;
+        font-size: 1.7rem;
+        line-height: 1.8;
+        color: #666;
+    } 
+    .fearures_class .features_box{
+        
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    }
+    .fearures_class .features_box .box_features{
+        padding: 3rem 2rem;
+        margin: 1.5rem;
+        background: #fff;
+        text-align: center;
+        outline: var(--outline);
+        outline-offset: -1rem;
+        box-shadow: var(--box-shadow);
+    }
+    .fearures_class .features_box .box_features:hover{
+        box-shadow: 1px 1px 10px 4px green;   
+    }
+    .fearures_class .features_box .box_features img{
+        margin: 1rem 0;
+        height: 15rem;
+    }.fearures_class .features_box .box_features h3{
+        font-size: 2.5rem;
+        color: rgba(0, 0, 0, 0.763);
+        line-height: 1.8;
+        
+    }
+    .fearures_class .features_box .box_features p{
+        font-size: 1.5rem;
+        color: gray;
+        line-height: 1.8;
+        padding: 1rem 0;
+    }
+    .Products_class .Products_div{
+        padding: 1rem;
+
+    }
+    .Products_class .Products_div:first-child{
+        margin-bottom: 2rem;
+    }
+    .Products_class .Products_div .features_box{
+        
+        background: #fff;
+        border-radius: 0.5rem;
+        text-align: center;
+        padding: 3rem 2rem;
+        outline-offset: -1rem;
+        outline: var(--outline);
+        box-shadow: var(--box-shadow);
+        margin: 1.5rem;
+        transition: .2s linear;
+    }
+    .Products_class .Products_div .features_box:hover{
+        box-shadow: 1px 1px 10px 4px green;
+    }
+    .Products_class .Products_div .features_box img{
+        height: 20rem;
+
+    }.Products_class .Products_div .features_box  h1{
+        font-size: 2.5rem;
+        color: rgba(0, 0, 0, 0.719);
+    }
+    .Products_class .Products_div .features_box .price{
+        font-size: 1.5rem;
+        color: grey;
+        padding: 0.5rem 0;       
+    }
+    .Products_class .Products_div .features_box .stars{
+        color: green;
+        padding: 0.5rem 0;
+        font-size: 1.5rem;
+    }
+    .CATEGORIES .features_box{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    }
+    .CATEGORIES .features_box .box_features{
+        padding: 3rem 2rem;
+        margin: 1rem;
+        background: #fff;
+        text-align: center;
+        outline: var(--outline);
+        outline-offset: -1rem;
+        box-shadow: var(--box-shadow);
+    }
+    .CATEGORIES .features_box .box_features:hover{
+        box-shadow: 1px 1px 10px 4px green;
+    }
+    .CATEGORIES .features_box .box_features img{
+        margin: 1rem 0;
+        height: 15rem;
+    }
+    .CATEGORIES .features_box .box_features h1{
+        font-size: 2rem;
+        color: rgba(0, 0, 0, 0.763);
+        line-height: 1.8;
+    }
+    .CATEGORIES .features_box .box_features h3{
+        color: green;
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+    .review .review_class{
+        
+        padding: 1rem;
+            
+    }
+    .review .review_class .features_box{
+        padding: 3rem 2rem;
+        margin: 1rem;
+        background: #fff;
+        text-align: center;
+        outline: var(--outline);
+        outline-offset: -1rem;
+        box-shadow: var(--box-shadow);
+        transition: .2s linear;
+        border-radius: 0.5rem;
+    }
+    .review .review_class .features_box:hover{
+        box-shadow: 1px 1px 10px 4px green;
+    }
+    .review .review_class .features_box img{
+        height: 10rem;
+        width: 10rem;
+        border-radius: 50%;
+    }
+    .review .review_class .features_box p{
+        line-height: 1.8;
+        padding: 1rem 0;
+        font-size: 1.5rem;
+        color: grey;
+
+    }
+    .review .review_class .features_box h2{
+        color: rgba(0, 0, 0, 0.763);
+        font-size: 2rem;
+        padding-bottom: .5rem; 
+    }
+    .review .review_class .features_box i{
+        color: green;
+        font-size: 1.5rem;
+        
+    }
+    .blog .blog_class{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    }
+    .blog .blog_class .features_box{
+        overflow: hidden;
+        border-radius: 0.5rem;
+        box-shadow: var(--box-shadow);
+        background: #fff;
+        padding: 2rem;
+        margin: 1rem;
+
+
+    }
+    .blog .blog_class .features_box img{
+        height: 25rem;
+        width: 100%;
+        object-fit: cover;
+    }
+    .blog .blog_class .features_box .content{
+        padding: 2rem;
+        
+
+    }
+    .blog .blog_class .features_box .content .icons{
+        display: flex ;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 1.5rem;
+        margin-bottom: 1rem; 
+        border-bottom: 2px solid green;   
+    }
+    .blog .blog_class .features_box .content .icons a{
+        color: grey;
+        font-size: 1.5rem;
+
+    }
+    .blog .blog_class .features_box .content .icons a i{
+        color: green;
+        padding-right: .5rem;
+    }
+    .blog .blog_class .features_box .content h3{
+        color: black;
+        font-size: 2rem;
+        padding: .5rem 0;
+        line-height: 1.8;
+
+    }
+    .blog .blog_class .features_box .content p{
+        line-height: 1.8;
+        color: grey;
+        font-size: 1.5rem;
+
+    }
+
+
+</style>
+<body>
+    <header class="hello">
+        <a href="#" class="logo"><i class="fa-solid fa-basket-shopping"> LALA'S FOOD</i></a>
+        <nav class="list">
+            <a href="#HOME">HOME</a>
+            <a href="#features">FEATURES</a>
+            <a href="#products">PRODUCTS</a>
+            <a href="#categories">CATEGORIES</a>
+            <a href="#review">REVIEWS</a>
+            <a href="#blos">BLOGS</a>
+        </nav>
+
+
+        <div class="icon">
+            <div class="fa-solid fa-bars" id="bar-style"></div>
+            <div class="fa-solid fa-magnifying-glass" id="search_bar"></div>
+            <div class="fa-solid fa-cart-shopping" id="cart_typ"></div>
+            <div class="fa-solid fa-user" id="user_typ"></div>
+        </div>
+
+        <form class="search_bar">
+            <input type="search" id="search-box" placeholder="LALA'S Special!!!">
+            <label for="search-box" class="fa-solid fa-magnifying-glass"></label>
+        </form>
+
+
+        <div class="check_out">
+            <div class="box">
+                <i class="fa-solid fa-trash"></i>
+                <img src="image/images/cart-img-1.png">
+                <div class="counter">
+                    <h3>WaterMelon</h3>
+                    <span class="price">$5.99/</span>
+                    <span class="qtn">Qty : 1</span>
+                </div>
+             </div>
+
+             <div class="box">
+                <i class="fa-solid fa-trash"></i>
+                <img src="image/images/cart-img-2.png">
+                <div class="counter">
+                    <h3>Onion</h3>
+                    <span class="price">$4.99/</span>
+                    <span class="qtn">Qty : 2</span>
+                </div>
+             </div>
+
+             <div class="box">
+                <i class="fa-solid fa-trash"></i>
+                <img src="image/images/cart-img-3.png">
+                <div class="counter">
+                    <h3>Chicken</h3>
+                    <span class="price">$5.46/</span>
+                    <span class="qtn">Qty : 1</span>
+                </div>
+             </div>
+
+             <div class="total">Total : $18.97/- </div>
+             <a href="#" class="btn">CheckOut</a>
+        </div>
+
+        <form action="#" class="login">
+            <h3>LOGIN NOW</h3>
+            <input type="email" placeholder="Your Email" class="boxi">
+            <input type="password" placeholder="Your Password" class="boxi">
+            <p>Forget Your Password <a href="">Click Here</a></p>
+            <p>Don't Have An Account <a href="">Create Now</a></p>
+            <input type="submit" value="LOGIN NOW" class="btn">
+        </form>
+
+
+
+    </header> 
+
+
+    <section class="home_class" id="HOME">
+        <div class="home_content">
+            <h3>Fresh and <span>Organic</span> Products For You</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum dignissimos minus ad repellendus, aperiam enim adipisci maiores at necessitatibus animi soluta deleniti rem aliquam vel?</p>
+            <a href="#" class="btn">Shop Now</a>
+        </div>
+    </section>
+
+    <section class="fearures_class" id="features">
+        <h1 class="head_1">Our <span>Features</span></h1>
+        <div class="features_box">
+            <div class="box_features">
+                <img src="image/images/feature-img-1.png" alt="">
+                <h3>Fresh and organic</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur illum recusandae ullam architecto, deserunt enim!</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+
+            <div class="box_features">
+                <img src="image/images/feature-img-1.png" alt="">
+                <h3>Fresh and organic</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur illum recusandae ullam architecto, deserunt enim!</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+
+            <div class="box_features">
+                <img src="image/images/feature-img-2.png" alt="">
+                <h3>Free delivery</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur illum recusandae ullam architecto, deserunt enim!</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+
+
+            <div class="box_features">
+                <img src="image/images/feature-img-3.png" alt="">
+                <h3>Easy Payments</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur illum recusandae ullam architecto, deserunt enim!</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="Products_class" id="products">
+        <h1 class="head_1">Our <span>Products</span></h1>
+        <div class="swiper Products_div">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide features_box">
+                    <img src="image/images/product-1.png" alt="">
+                    <h1>Fresh Orange</h1>
+                    <div class="price">$4.99/ - 15.99/</div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+                <div class="swiper-slide features_box">
+                    <img src="image/images/product-2.png" alt="">
+                    <h1>Fresh Onion</h1>
+                    <div class="price">$4.99/ - 15.99/</div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+                <div class="swiper-slide features_box">
+                    <img src="image/images/product-3.png" alt="">
+                    <h1>Fresh Meet</h1>
+                    <div class="price">$4.99/ - 15.99/</div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+                <div class="swiper-slide features_box">
+                    <img src="image/images/product-4.png" alt="">
+                    <h1>Fresh Meet</h1>
+                    <div class="price">$4.99/ - 15.99/</div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+                <div class="swiper-slide features_box">
+                    <img src="image/images/product-5.png" alt="">
+                    <h1>Fresh Meet</h1>
+                    <div class="price">$4.99/ - 15.99/</div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+                <div class="swiper-slide features_box">
+                    <img src="image/images/product-6.png" alt="">
+                    <h1>Fresh Meet</h1>
+                    <div class="price">$4.99/ - 15.99/</div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+                <div class="swiper-slide features_box">
+                    <img src="image/images/product-7.png" alt="">
+                    <h1>Fresh Meet</h1>
+                    <div class="price">$4.99/ - 15.99/</div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+                <div class="swiper-slide features_box">
+                    <img src="image/images/product-8.png" alt="">
+                    <h1>Fresh Meet</h1>
+                    <div class="price">$4.99/ - 15.99/</div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+                
+                
+
+            </div>
+        </div>
+
+
+
+
+        <div class="swiper Products_div">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide features_box">
+                    <img src="image/images/product-4.png" alt="">
+                    <h1>Fresh </h1>
+                    <div class="price">$4.99/ - 15.99/</div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+                <div class="swiper-slide features_box">
+                    <img src="image/images/product-5.png" alt="">
+                    <h1>fresh Onion</h1>
+                    <div class="price">$4.99/ - 15.99/</div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+                <div class="swiper-slide features_box">
+                    <img src="image/images/product-6.png" alt="">
+                    <h1>fresh Meet</h1>
+                    <div class="price">$4.99/ - 15.99/</div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+                <div class="swiper-slide features_box">
+                    <img src="image/images/product-8.png" alt="">
+                    <h1>fresh Meet</h1>
+                    <div class="price">$4.99/ - 15.99/</div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+
+                <div class="swiper-slide features_box">
+                    <img src="image/images/product-7.png" alt="">
+                    <h1>Fresh Meet</h1>
+                    <div class="price">$4.99/ - 15.99/</div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+                <div class="swiper-slide features_box">
+                    <img src="image/images/product-1.png" alt="">
+                    <h1>Fresh Meet</h1>
+                    <div class="price">$4.99/ - 15.99/</div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+                <div class="swiper-slide features_box">
+                    <img src="image/images/product-2.png" alt="">
+                    <h1>Fresh Meet</h1>
+                    <div class="price">$4.99/ - 15.99/</div>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <a href="#" class="btn">Add to Cart</a>
+                </div>
+
+               
+
+                
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="CATEGORIES" id="categories">
+        <h1 class="head_1">Product <span>Categories</span></h1>
+        <div class="features_box">
+            <div class="box_features">
+                <img src="image/images/cat-1.png" alt="">
+                <h1>Vegetables</h1>
+                <h3>Upto 45% off</h3>
+                <a href="#" class="btn">Shop Now</a>
+            </div>
+
+            <div class="box_features">
+                <img src="image/images/cat-2.png" alt="">
+                <h1>Fresh Fruits</h1>
+                <h3>Upto 20% off</h3>
+                <a href="#" class="btn">Shop Now</a>
+            </div>
+
+            <div class="box_features">
+                <img src="image/images/cat-3.png" alt="">
+                <h1>Dairy Products</h1>
+                <h3>Upto 5% off</h3>
+                <a href="#" class="btn">Shop Now</a>
+            </div>
+
+            <div class="box_features">
+                <img src="image/images/cat-4.png" alt="">
+                <h1>Fresh Meat</h1>
+                <h3>Upto 25% off</h3>
+                <a href="#" class="btn">Shop Now</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="review" id="review">
+        <h1 class="head_1">Customer's <span>Review</span></h1>
+        <div class="swiper review_class">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide features_box">
+                    <img src="image/images/pic-1.png" alt="">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique quod adipisci possimus, quos repudiandae facilis?</p>
+                    <h2>Jown Wick</h2>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+
+                    </div>
+                </div>
+
+                <div class="swiper-slide features_box">
+                    <img src="image/images/pic-2.png" alt="">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique quod adipisci possimus, quos repudiandae facilis?</p>
+                    <h2>Jown Wick</h2>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+
+                    </div>
+                </div>
+
+                <div class="swiper-slide features_box">
+                    <img src="image/images/pic-3.png" alt="">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique quod adipisci possimus, quos repudiandae facilis?</p>
+                    <h2>Jown Wick</h2>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+
+                    </div>
+                </div>
+
+                <div class="swiper-slide features_box">
+                    <img src="image/images/pic-4.png" alt="">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique quod adipisci possimus, quos repudiandae facilis?</p>
+                    <h2>Jown Wick</h2>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>    
+                        <i class="fa-solid fa-star-half-stroke"></i>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+    <section class="blog" id="blos">
+        <h1 class="head_1">Our<span>Blogs</span></h1>
+        <div class="blog_class">
+            <div class="features_box">
+                <img src="image/images/blog-1.jpg" alt="">
+                <div class="content">
+                    <div class="icons">
+                        <a href="#"><i class="fa-solid fa-user"></i> by user</a>
+                        <a href="#"><i class="fa-solid fa-calendar"></i> 1 May, 2021</a>
+                    </div>
+                    <h3>Fresh and Organic Vegetables</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi, ipsum!</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="features_box">
+                <img src="image/images/blog-3.jpg" alt="">
+                <div class="content">
+                    <div class="icons">
+                        <a href="#"><i class="fa-solid fa-user"></i> by user</a>
+                        <a href="#"><i class="fa-solid fa-calendar"></i> 1 May, 2021</a>
+                    </div>
+                    <h3>Fresh and Organic Vegetables</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi, ipsum!</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="features_box">
+                <img src="image/images/blog-2.jpg" alt="">
+                <div class="content">
+                    <div class="icons">
+                        <a href="#"><i class="fa-solid fa-user"></i> by user</a>
+                        <a href="#"><i class="fa-solid fa-calendar"></i> 1 May, 2021</a>
+                    </div>
+                    <h3>Fresh and Organic Vegetables</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi, ipsum!</p>
+                    <a href="#" class="btn">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+
+
+
+    <script>
+        let searchForm = document.querySelector('.search_bar');
+        document.querySelector('#search_bar').onclick = () =>{
+            searchForm.classList.toggle('active');
+        }
+
+        let shoping_ = document.querySelector('.check_out');
+        document.querySelector('#cart_typ').onclick = () =>{
+            shoping_.classList.toggle('active');
+        }
+        let login_ = document.querySelector('.login');
+        document.querySelector('#user_typ').onclick = () =>{
+            login_.classList.toggle('active');
+        }
+
+
+        var swiper = new Swiper(".Products_div", {
+      loop:true,
+      spaceBetween: 20,
+
+      autoplay:{
+        delay:7500,
+        disableOnInteraction: false,
+      },
+      
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          
+        },
+        768: {
+          slidesPerView: 2,
+          
+        },
+        1020: {
+          slidesPerView: 3,
+          
+        },
+      },
+    });
+
+
+    var swiper = new Swiper(".review_class", {
+      loop:true,
+      spaceBetween: 20,
+
+      autoplay:{
+        delay:7500,
+        disableOnInteraction: false,
+      },
+      
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          
+        },
+        768: {
+          slidesPerView: 2,
+          
+        },
+        1020: {
+          slidesPerView: 3,
+          
+        },
+      },
+    });
+
+    </script>
+</body>
+</html>
